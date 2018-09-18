@@ -34,13 +34,9 @@ export default class LoginComponent extends Component {
    * attempts to log on the server
    */
   attemptLogin(){
-
-    this.props.apiLoginRequest({username: this.state.email, password: this.state.password});  
-
-return;
     if(Validator.getInstance().isEmailValid(this.state.email)){
       if(Validator.getInstance().isPasswordValid(this.state.password)){
-        // this.props.apiLoginRequest({username: this.state.email, password: this.state.password});  
+        this.props.apiLoginRequest({username: this.state.email, password: this.state.password});  
         setTimeout(() => {
             this.setState({loading:false});
         }, 2000);
