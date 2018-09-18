@@ -13,7 +13,7 @@ const initialState = {
  * @param {state to be updated while login is in progress} state 
  * @param {actions to be fired wile login is in prgress} action 
  */
-export default function apiLogin(state = initialState, action = {}) {
+export default function apiLogin(state = initialState, action) {
   //login call back checks
   switch (action.type) {
     // login api call
