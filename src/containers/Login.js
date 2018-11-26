@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import {View} from 'react-native';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as appActions from '../actions';
-import LoginComponent from '../components/LoginComponent';
-import LoginComponentStyle from '../styles/LoginComponentStyle';
+import React, { Component } from "react";
+import { View } from "react-native";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as appActions from "../actions";
+import LoginComponent from "../components/LoginComponent";
+import LoginComponentStyle from "../styles/LoginComponentStyle";
 
 class Login extends Component {
-  
   constructor(props) {
     super(props);
   }
@@ -16,14 +15,11 @@ class Login extends Component {
    * renders ui
    */
   render() {
-    const { state, actions} = this.props;
+    const { state, actions } = this.props;
     return (
       <View style={LoginComponentStyle.login_parent}>
-      {console.log("state is "+JSON.stringify(state.LoginReducer))}
-      <LoginComponent
-         payload={state.LoginReducer}
-         {...actions}
-        />
+        {console.log("state is " + JSON.stringify(state.LoginReducer))}
+        <LoginComponent payload={state.LoginReducer} {...actions} />
       </View>
     );
   }
@@ -31,7 +27,7 @@ class Login extends Component {
 
 /**
  * maps state with the props.
- * @param {state of app} state 
+ * @param {state of app} state
  */
 function mapStateToProps(state) {
   return {
@@ -41,7 +37,7 @@ function mapStateToProps(state) {
 
 /**
  * Maps dispatcher to with props.
- * @param {action dispatcher} dispatch 
+ * @param {action dispatcher} dispatch
  */
 function mapDispatchToProps(dispatch) {
   return {
@@ -49,4 +45,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
